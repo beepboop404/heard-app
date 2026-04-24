@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heard Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="hero">
+    <div>
+        <h1>Heard</h1>
+        <p class="tagline">Policy analysis result</p>
+    </div>
+    <a class="home" href="/">Analyze another</a>
+</div>
+
+<div class="result-container">
+
+    <div class="result-card">
+        <h2>Original policy</h2>
+        <p class="meta">{{ analysis['policy_type'] }} · {{ analysis['audience'] }}</p>
+        <pre>{{ analysis['policy_text'] }}</pre>
+    </div>
+
+    <div class="grid">
+        <div class="result-card">
+            <h2>Plain English</h2>
+            <pre>{{ analysis['summary'] }}</pre>
+        </div>
+
+        <div class="result-card">
+            <h2>Who is affected</h2>
+            <pre>{{ analysis['affected'] }}</pre>
+        </div>
+
+        <div class="result-card">
+            <h2>Both sides</h2>
+            <pre>{{ analysis['both_sides'] }}</pre>
+        </div>
+
+        <div class="result-card">
+            <h2>Questions to ask</h2>
+            <pre>{{ analysis['questions'] }}</pre>
+        </div>
+
+        <div class="result-card">
+            <h2>Public comment script</h2>
+            <pre>{{ analysis['script'] }}</pre>
+        </div>
+
+        <div class="result-card">
+            <h2>Email draft</h2>
+            <pre>{{ analysis['email'] }}</pre>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

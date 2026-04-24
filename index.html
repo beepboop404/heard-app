@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="hero">
+    <div>
+        <h1>Heard</h1>
+        <p class="tagline">Turn confusing policy into public participation.</p>
+    </div>
+    <div class="badge">Governance + Accessibility</div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>Analyze a policy</h2>
+        <p class="small">Paste a policy, rule, lease clause, university announcement, or civic proposal.</p>
+
+        <form method="POST">
+            <label>Audience</label>
+            <select name="audience">
+                <option>College students</option>
+                <option>Local residents</option>
+                <option>Parents</option>
+                <option>Disabled residents</option>
+                <option>Low-income residents</option>
+                <option>First-time voters</option>
+                <option>Small business owners</option>
+            </select>
+
+            <label>Policy type</label>
+            <select name="policy_type">
+                <option>University policy</option>
+                <option>City government proposal</option>
+                <option>Housing or lease rule</option>
+                <option>Healthcare access policy</option>
+                <option>Voting rule</option>
+                <option>General public policy</option>
+            </select>
+
+            <label>Policy text</label>
+            <textarea name="policy_text" required placeholder="Paste confusing policy text here..."></textarea>
+
+            <button type="submit">Make this understandable</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Why Heard matters</h2>
+        <p>
+            Most people do not avoid civic participation because they do not care.
+            They avoid it because the language is confusing, the process is unclear,
+            and they do not know what to say.
+        </p>
+
+        <div class="feature">Plain-English explanation</div>
+        <div class="feature">Affected groups</div>
+        <div class="feature">Both sides of the issue</div>
+        <div class="feature">Public meeting questions</div>
+        <div class="feature">Comment script + email draft</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card full">
+        <h2>Recent saved analyses</h2>
+
+        {% if saved %}
+            {% for item in saved %}
+                <a class="saved" href="/result/{{ item['id'] }}">
+                    <strong>{{ item['policy_type'] }}</strong>
+                    <span>{{ item['audience'] }} · {{ item['created_at'] }}</span>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p class="small">No saved analyses yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
